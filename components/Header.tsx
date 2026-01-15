@@ -13,22 +13,22 @@ export function Header() {
   };
 
   return (
-    <header className="border-b border-gray-800 bg-gray-900 sticky top-0 z-50">
+    <header className="border-b border-gray-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-white hover:text-red-500 transition-colors">
+        <Link href="/" className="text-2xl font-bold text-white hover:text-red-600 transition-colors">
           프롬프티아
         </Link>
         
         <nav className="flex items-center gap-4">
           <Link
             href="/blog"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="px-3 py-2 text-gray-300 hover:text-white transition-colors rounded hover:bg-gray-900"
           >
             가이드
           </Link>
           <Link
             href="/upload"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="px-3 py-2 text-gray-300 hover:text-white transition-colors rounded hover:bg-gray-900"
           >
             업로드
           </Link>
@@ -48,7 +48,7 @@ export function Header() {
           ) : (
             <Link
               href="/login"
-              className="px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+              className="px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors font-semibold"
             >
               로그인
             </Link>

@@ -3,6 +3,13 @@ import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Noto_Sans_KR } from "next/font/google";
+
+const notoSansKR = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com";
 
@@ -63,11 +70,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className="flex flex-col min-h-screen">
+    <html lang="ko" className={notoSansKR.className}>
+      <body className="flex flex-col min-h-screen bg-black text-white">
         <AuthProvider>
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 bg-black">
             {children}
           </main>
           <Footer />

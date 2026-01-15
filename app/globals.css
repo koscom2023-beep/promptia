@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 다크 모드 기본 설정 */
+/* 다크 모드 기본 설정 - 넷플릭스 스타일 */
 @layer base {
+  * {
+    @apply border-gray-800;
+  }
+  
   body {
-    @apply bg-gray-900 text-white;
+    @apply bg-black text-white;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  html {
+    @apply bg-black;
   }
 }
 
