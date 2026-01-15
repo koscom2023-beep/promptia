@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={notoSansKR.className}>
+    <html lang="ko" className={`dark ${notoSansKR.className}`}>
       <body className="flex flex-col min-h-screen bg-black text-white">
         <AuthProvider>
           <Header />
