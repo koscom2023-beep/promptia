@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "프롬프티아 (Promptia)",
+    default: "프롬프티아 - AI 창작 서바이벌",
     template: "%s | 프롬프티아",
   },
-  description: "독자와 AI 창작자들의 해방구 - 프롬프티아에서 AI로 만든 웹소설과 웹툰을 만나보세요",
-  keywords: ["프롬프티아", "Promptia", "웹소설", "웹툰", "AI", "창작", "소설", "만화", "프롬프트"],
+  description: "AI 소설, 웹툰, 영상 공모전 및 투표 플랫폼. 당신의 프롬프트가 작품이 되는 곳.",
+  keywords: ["프롬프티아", "Promptia", "AI 창작", "웹소설", "웹툰", "영상", "공모전", "투표", "프롬프트", "AI 소설", "AI 웹툰"],
   authors: [{ name: "프롬프티아" }],
   creator: "프롬프티아",
   publisher: "프롬프티아",
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: siteUrl,
     siteName: "프롬프티아",
-    title: "프롬프티아 (Promptia)",
-    description: "독자와 AI 창작자들의 해방구 - 프롬프티아에서 AI로 만든 웹소설과 웹툰을 만나보세요",
+    title: "프롬프티아 - AI 창작 서바이벌",
+    description: "AI 소설, 웹툰, 영상 공모전 및 투표 플랫폼. 당신의 프롬프트가 작품이 되는 곳.",
     images: [
       {
         url: `${siteUrl}/og-image-default.jpg`,
@@ -39,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "프롬프티아 (Promptia)",
-    description: "독자와 AI 창작자들의 해방구 - 프롬프티아에서 AI로 만든 웹소설과 웹툰을 만나보세요",
+    title: "프롬프티아 - AI 창작 서바이벌",
+    description: "AI 소설, 웹툰, 영상 공모전 및 투표 플랫폼. 당신의 프롬프트가 작품이 되는 곳.",
     images: [`${siteUrl}/og-image-default.jpg`],
   },
   robots: {
@@ -63,10 +64,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <AuthProvider>
           <Header />
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

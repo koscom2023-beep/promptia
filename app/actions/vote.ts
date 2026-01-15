@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 
-export async function voteForEpisode(episodeId: string) {
+export async function voteForNovel(novelId: string) {
   try {
     const supabase = await createClient();
     const headersList = await headers();
@@ -14,11 +14,11 @@ export async function voteForEpisode(episodeId: string) {
     const realIp = headersList.get("x-real-ip");
     const ipAddress = forwardedFor?.split(",")[0]?.trim() || realIp || "unknown";
 
-    // 이미 해당 에피소드에 해당 IP로 투표했는지 확인
+    // 이미 해당 작품에 해당 IP로 투표했는지 확인
     const { data: existingVote, error: checkError } = await supabase
       .from("votes")
       .select("id")
-      .eq("episode_id", episodeId)
+      .eq("novel_id", novelId)
       .eq("ip_address", ipAddress)
       .single();
 
@@ -32,31 +32,9 @@ export async function voteForEpisode(episodeId: string) {
       return { success: false, error: "이미 투표하셨습니다." };
     }
 
-    // 에피소드 정보 가져오기 (novel_id와 user_id를 위해)
-    const { data: episode, error: episodeError } = await supabase
-      .from("episodes")
-      .select("novel_id, user_id")
-      .eq("id", episodeId)
-      .single();
-
-    if (episodeError || !episode) {
-      return { success: false, error: "에피소드를 찾을 수 없습니다." };
-    }
-
-    // 현재 사용자 정보 가져오기 (익명 사용자도 가능)
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    // user_id는 필수이므로, 익명 사용자의 경우에도 자신의 익명 사용자 ID 사용
-    // AuthContext에서 이미 익명 로그인을 처리하므로 user?.id가 존재해야 함
-    const userId = user?.id || episode.user_id;
-
     // 투표 생성
     const { error: insertError } = await supabase.from("votes").insert({
-      novel_id: episode.novel_id,
-      episode_id: episodeId,
-      user_id: userId,
+      novel_id: novelId,
       ip_address: ipAddress,
     });
 
@@ -65,8 +43,22 @@ export async function voteForEpisode(episodeId: string) {
       return { success: false, error: "투표 생성 중 오류가 발생했습니다." };
     }
 
+    // 작품의 vote_count 증가
+    const { data: novel } = await supabase
+      .from("novels")
+      .select("vote_count")
+      .eq("id", novelId)
+      .single();
+
+    if (novel) {
+      await supabase
+        .from("novels")
+        .update({ vote_count: (novel.vote_count || 0) + 1 })
+        .eq("id", novelId);
+    }
+
     // 페이지 재검증하여 UI 업데이트
-    revalidatePath(`/novels/${episode.novel_id}/${episodeId}`);
+    revalidatePath(`/view/${novelId}`);
 
     return { success: true };
   } catch (error) {

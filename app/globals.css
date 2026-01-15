@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 다크 모드 기본 설정 */
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
 /* 이미지 스켈레톤 shimmer 애니메이션 */
 @keyframes shimmer {
   0% {
@@ -14,4 +21,15 @@
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
+}
+
+/* Swiper 커스텀 스타일 */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px !important;
 }
