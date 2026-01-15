@@ -1,39 +1,36 @@
+"use client";
+
 export function Footer() {
+  const handleLinkClick = (message: string) => {
+    alert(message);
+  };
+
   return (
     <footer className="border-t border-gray-800 bg-gray-900 text-gray-400 mt-auto">
       <div className="container mx-auto px-4 py-8">
         {/* 링크 섹션 */}
         <div className="flex flex-wrap gap-6 mb-6">
-          <a
-            href="#"
-            className="hover:text-white transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("이용약관 페이지 준비 중입니다.");
-            }}
+          <button
+            type="button"
+            className="hover:text-white transition-colors text-left"
+            onClick={() => handleLinkClick("이용약관 페이지 준비 중입니다.")}
           >
             이용약관
-          </a>
-          <a
-            href="#"
-            className="hover:text-white transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("개인정보처리방침 페이지 준비 중입니다.");
-            }}
+          </button>
+          <button
+            type="button"
+            className="hover:text-white transition-colors text-left"
+            onClick={() => handleLinkClick("개인정보처리방침 페이지 준비 중입니다.")}
           >
             개인정보처리방침
-          </a>
-          <a
-            href="#"
-            className="hover:text-white transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("고객센터 페이지 준비 중입니다.");
-            }}
+          </button>
+          <button
+            type="button"
+            className="hover:text-white transition-colors text-left"
+            onClick={() => handleLinkClick("고객센터 페이지 준비 중입니다.")}
           >
             고객센터
-          </a>
+          </button>
         </div>
 
         {/* 법적 고지 */}
