@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Noto_Sans_KR } from "next/font/google";
 
@@ -71,10 +70,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`dark ${notoSansKR.className}`}>
-      <body className="flex flex-col min-h-screen bg-black text-white">
+      <body className="flex flex-col min-h-screen bg-[#161b26] text-white">
         <AuthProvider>
-          <Header />
-          <main className="flex-1 bg-black">
+          <main className="flex-1 bg-[#161b26]">
             {children}
           </main>
           <Footer />
