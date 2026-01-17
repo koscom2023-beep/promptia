@@ -17,8 +17,7 @@ async function fetchNovels(): Promise<NovelItem[]> {
     const { data } = await supabase
       .from("novels")
       .select("id, updated_at")
-      .eq("category", "novel")
-      .eq("hidden", false);
+      .eq("type", "novel");
     
     return data || [];
   } catch (error) {
@@ -36,8 +35,7 @@ async function fetchWebtoons(): Promise<NovelItem[]> {
     const { data } = await supabase
       .from("novels")
       .select("id, updated_at")
-      .eq("category", "webtoon")
-      .eq("hidden", false);
+      .eq("type", "webtoon");
     
     return data || [];
   } catch (error) {
@@ -66,7 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: `${siteUrl}/novel`,
+      url: `${siteUrl}/novels`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,

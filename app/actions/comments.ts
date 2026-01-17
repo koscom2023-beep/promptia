@@ -17,22 +17,19 @@ export async function getClientIp(): Promise<string> {
  * 댓글 작성
  */
 export async function createComment(
-  episodeId: string,
+  _episodeId: string,
   novelId: string,
   nickname: string,
   content: string
 ) {
   const supabase = await createClient();
-  const ipAddress = await getClientIp();
 
   const { data, error } = await supabase
     .from("comments")
     .insert({
-      episode_id: episodeId,
       novel_id: novelId,
-      nickname: nickname.trim() || "익명",
+      user_nickname: nickname.trim() || "익명",
       content: content.trim(),
-      ip_address: ipAddress,
     })
     .select()
     .single();
@@ -47,13 +44,13 @@ export async function createComment(
 /**
  * 댓글 목록 가져오기
  */
-export async function getComments(episodeId: string) {
+export async function getComments(_episodeId: string, novelId: string) {
   const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("comments")
-    .select("id, nickname, content, like_count, created_at")
-    .eq("episode_id", episodeId)
+    .select("id, user_nickname, content, created_at")
+    .eq("novel_id", novelId)
     .order("created_at", { ascending: false });
 
   if (error) {

@@ -1,0 +1,44 @@
+{
+  "common": {
+    "siteName": "Promptia",
+    "tagline": "AI Creation Platform",
+    "novel": "Novel",
+    "webtoon": "Webtoon",
+    "video": "Video",
+    "aiNovel": "AI Novel",
+    "aiWebtoon": "AI Webtoon",
+    "aiCreation": "AI Creation",
+    "webNovel": "Web Novel",
+    "aiGeneratedContent": "AI Generated Content",
+    "creation": "Creation",
+    "defaultAuthor": "Anonymous Author"
+  },
+  "HomePage": {
+    "title": "Welcome to Promptia!"
+  },
+  "header": {
+    "siteName": "Promptia",
+    "guide": "Guide",
+    "upload": "Upload",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "footer": {
+    "siteName": "Promptia",
+    "tagline": "AI Creation Platform",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "customerService": "Customer Service",
+    "disclaimer": "All content on this platform is AI-generated, and copyright and legal responsibility belong to each author.",
+    "copyright": "Promptia. All rights reserved."
+  },
+  "novelDetail": {
+    "notFoundTitle": "Work not found",
+    "defaultDescription": "detail page"
+  },
+  "navigation": {
+    "language": "Language",
+    "korean": "한국어",
+    "english": "English"
+  }
+}

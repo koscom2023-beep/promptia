@@ -1,37 +1,43 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { createClient } from "@/lib/supabase/client";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export function Header() {
   const { user, loading } = useAuth();
   const supabase = createClient();
+  const t = useTranslations("header");
+  const locale = useLocale();
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
   };
 
   return (
-    <header className="border-b border-gray-800 bg-gray-900 sticky top-0 z-50">
+    <header className="border-b border-gray-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-white hover:text-red-500 transition-colors">
-          프롬프티아
+        <Link href={`/${locale}`} className="text-2xl font-bold text-white hover:text-red-600 transition-colors">
+          {t("siteName")}
         </Link>
         
         <nav className="flex items-center gap-4">
           <Link
-            href="/blog"
-            className="text-gray-400 hover:text-white transition-colors"
+            href={`/${locale}/blog`}
+            className="px-3 py-2 text-gray-300 hover:text-white transition-colors rounded hover:bg-gray-900"
           >
-            가이드
+            {t("guide")}
           </Link>
           <Link
-            href="/upload"
-            className="text-gray-400 hover:text-white transition-colors"
+            href={`/${locale}/upload`}
+            className="px-3 py-2 text-gray-300 hover:text-white transition-colors rounded hover:bg-gray-900"
           >
-            업로드
+            {t("upload")}
           </Link>
+          
+          <LanguageSwitcher />
           
           {loading ? (
             <div className="w-20 h-8 bg-gray-800 animate-pulse rounded"></div>
@@ -42,15 +48,15 @@ export function Header() {
                 onClick={handleSignOut}
                 className="px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 text-white rounded transition-colors"
               >
-                로그아웃
+                {t("logout")}
               </button>
             </div>
           ) : (
             <Link
-              href="/login"
-              className="px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+              href={`/${locale}/login`}
+              className="px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors font-semibold"
             >
-              로그인
+              {t("login")}
             </Link>
           )}
         </nav>
