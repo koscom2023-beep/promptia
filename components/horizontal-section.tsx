@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronLeft, ChevronRight, Clock, Sparkles, Zap } from "lucide-react"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
@@ -79,16 +79,37 @@ export function HorizontalSection({ title, items }: HorizontalSectionProps) {
 
           {/* Cards */}
           <div ref={scrollRef} className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
-            {items.map((item) => (
-              <Link key={item.id} href={`/view/${item.id}`}>
+            {items.map((item) => {
+              const ImageWithError = ({ item }: { item: SectionItem }) => {
+                const [imgError, setImgError] = useState(false)
+                // 더 나은 기본 이미지 URL 사용
+                const defaultImage = "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&q=80"
+                
+                // imageUrl이 없거나 빈 문자열이면 기본 이미지 사용
+                const imageSrc = (!item.imageUrl || item.imageUrl.trim() === '' || imgError) 
+                  ? defaultImage 
+                  : item.imageUrl
+                
+                return (
+                  <img
+                    src={imageSrc}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    onError={() => {
+                      if (!imgError) {
+                        setImgError(true)
+                      }
+                    }}
+                  />
+                )
+              }
+              
+              return (
+              <Link key={item.id} href={`/novels/${item.id}`}>
                 <div className="relative flex-shrink-0 w-28 md:w-36 group cursor-pointer">
                   <div className="relative aspect-[2/3] rounded-xl overflow-hidden bg-slate-700 transition-all duration-300 hover:ring-2 hover:ring-[#5eead4]/50">
-                    <img
-                      src={item.imageUrl || "https://via.placeholder.com/400x600/222/fff?text=Cover"}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <ImageWithError item={item} />
 
                     {/* Badge */}
                     {item.badge && (
@@ -113,7 +134,8 @@ export function HorizontalSection({ title, items }: HorizontalSectionProps) {
                   </div>
                 </div>
               </Link>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>

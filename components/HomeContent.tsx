@@ -154,7 +154,7 @@ export function HomeContent({
                     <div className="group block cursor-default">
                       <div className="aspect-[2/3] relative overflow-hidden rounded-lg bg-gray-900 mb-2 border border-gray-800">
                         <img
-                          src={item.thumbnail_url}
+                          src={item.thumbnail_url || "https://via.placeholder.com/300x400"}
                           alt={item.title}
                           className="w-full h-full object-cover opacity-50"
                           loading="lazy"
@@ -220,7 +220,7 @@ export function HomeContent({
                     <div className="group block cursor-default">
                       <div className="aspect-[2/3] relative overflow-hidden rounded-lg bg-gray-900 mb-2 border border-gray-800">
                         <img
-                          src={item.thumbnail_url}
+                          src={item.thumbnail_url || "https://via.placeholder.com/300x400"}
                           alt={item.title}
                           className="w-full h-full object-cover opacity-50"
                           loading="lazy"
@@ -286,7 +286,7 @@ export function HomeContent({
                     <div className="group block cursor-default">
                       <div className="aspect-[2/3] relative overflow-hidden rounded-lg bg-gray-900 mb-2 border border-gray-800">
                         <img
-                          src={item.thumbnail_url}
+                          src={item.thumbnail_url || "https://via.placeholder.com/300x400"}
                           alt={item.title}
                           className="w-full h-full object-cover opacity-50"
                           loading="lazy"

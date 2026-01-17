@@ -1,22 +1,86 @@
 {
   "node": {
-    "8f5e241609912390d712d1578f44dcecbac6c7e6": {
+    "2df258d81743ca853cf6fd0674fc1e8acbe0ea95": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Capp%5C%5Capp%5C%5Cactions%5C%5Cranking.ts%22%2C%5B%22getTop3Ranking%22%2C%22getRanking%22%5D%5D%5D&__client_imported__=!"
+        "app/[locale]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Franking.ts%22%2C%5B%22getTop3Ranking%22%2C%22getRanking%22%2C%22refreshRanking%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
-        "app/page": "rsc"
+        "app/[locale]/page": "rsc"
       }
     },
-    "b7500e87d05705ba19eb4a9a23af6055c6022ccb": {
+    "99fac3d0ba997ff04ca24087211f7c1d1f61ecc5": {
       "workers": {
-        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Capp%5C%5Capp%5C%5Cactions%5C%5Cranking.ts%22%2C%5B%22getTop3Ranking%22%2C%22getRanking%22%5D%5D%5D&__client_imported__=!"
+        "app/[locale]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Franking.ts%22%2C%5B%22getTop3Ranking%22%2C%22getRanking%22%2C%22refreshRanking%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
-        "app/page": "rsc"
+        "app/[locale]/page": "rsc"
+      }
+    },
+    "e78e02290a5d4c762dd539c29dd3306a50beec03": {
+      "workers": {
+        "app/[locale]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Franking.ts%22%2C%5B%22getTop3Ranking%22%2C%22getRanking%22%2C%22refreshRanking%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/[locale]/page": "rsc"
+      }
+    },
+    "2e0cc624237abc6fcb300223e7de185c42e920ef": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "729903c7e81d61dac6728ec4c30ed52dfc9d780c": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "797bb76434fb5b4e8ad306a7745987fe422bc1d9": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "8009aa2ecb376e246bd1d8c22c004921aa60adb9": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "9ad0c6cc1d1f84029377e753d02e684c6df1c7ba": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "2e3c814751bfc0e9167be9e2707c18e6bacc148d": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
+      }
+    },
+    "dae49a292cf0b3dd9b7ef02af85755fc082bb606": {
+      "workers": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fcomments.ts%22%2C%5B%22checkCommentLikeStatus%22%2C%22getClientIp%22%2C%22createComment%22%2C%22toggleCommentLike%22%2C%22getComments%22%5D%5D%2C%5B%22%2Fhome%2Fsah4444%2Fapp%2Fapp%2Factions%2Fvote.ts%22%2C%5B%22voteForEpisode%22%2C%22voteForNovel%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/[locale]/(platform)/novels/[id]/[episodeId]/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "bI+0zHN7qU90rJUyQ4hE7MWona2QJ94GWSL08gXzOd8="
+  "encryptionKey": "bRAiDTHhJpLoxrCjHIgOYn3ZaDKyVWpaoUxLdkUxNJU="
 }

@@ -2,21 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 강제 검은 배경 및 흰색 텍스트 */
-body {
-  background-color: #000000 !important;
-  color: #ffffff !important;
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* #000000 */
+    --foreground: 0 0% 100%; /* #ffffff */
+    --foreground-secondary: 220 13% 91%; /* #e5e7eb */
+    --foreground-muted: 220 9% 64%; /* #9ca3af */
+    --border: 215 16% 47%; /* #334155 - slate-700 */
+  }
+
+  .dark {
+    --background: 0 0% 0%; /* #000000 */
+    --background-secondary: 222 47% 11%; /* #0f172a */
+    --background-tertiary: 215 25% 27%; /* #1e293b */
+    --foreground: 0 0% 100%; /* #ffffff */
+    --foreground-secondary: 220 13% 91%; /* #e5e7eb */
+    --foreground-muted: 220 9% 64%; /* #9ca3af */
+    --border: 215 16% 47%; /* #334155 - slate-700 */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-netflix-black text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply bg-netflix-black;
+    scroll-behavior: smooth;
+  }
 }
 
-html {
-  background-color: #000000 !important;
-}
+@layer utilities {
+  /* Scrollbar hide utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 
-/* Scrollbar hide utility */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+  /* 넷플릭스 스타일 그라데이션 */
+  .netflix-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  /* 텍스트 그림자 */
+  .text-shadow-netflix {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
 }

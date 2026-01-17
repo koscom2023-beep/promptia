@@ -5,9 +5,8 @@ import { createComment } from "@/app/actions/comments";
 
 interface Comment {
   id: string;
-  nickname: string;
+  user_nickname: string;
   content: string;
-  like_count: number;
   created_at: string;
 }
 
@@ -84,7 +83,7 @@ export function CommentsSection({
         {comments.map((comment) => (
           <div key={comment.id} className="border-b border-gray-200 pb-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="font-semibold">{comment.nickname}</span>
+              <span className="font-semibold">{comment.user_nickname || "익명"}</span>
               <span className="text-sm text-gray-500">
                 {new Date(comment.created_at).toLocaleDateString("ko-KR")}
               </span>

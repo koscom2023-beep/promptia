@@ -2,6 +2,7 @@
 
 import { Eye, Heart, Crown, Medal, Award } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 interface RankingItem {
   id: string
@@ -52,8 +53,34 @@ export function RankingSection({ title, items }: RankingSectionProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {items.slice(0, 10).map((item) => (
-            <Link key={item.id} href={`/view/${item.id}`}>
+          {items.slice(0, 10).map((item) => {
+            const ImageWithError = ({ item }: { item: RankingItem }) => {
+              const [imgError, setImgError] = useState(false)
+              // 더 나은 기본 이미지 URL 사용
+              const defaultImage = "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop&q=80"
+              
+              // imageUrl이 없거나 빈 문자열이면 기본 이미지 사용
+              const imageSrc = (!item.imageUrl || item.imageUrl.trim() === '' || imgError) 
+                ? defaultImage 
+                : item.imageUrl
+              
+              return (
+                <img
+                  src={imageSrc}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={() => {
+                    if (!imgError) {
+                      setImgError(true)
+                    }
+                  }}
+                />
+              )
+            }
+            
+            return (
+            <Link key={item.id} href={`/novels/${item.id}`}>
               <div className="group flex items-center gap-4 p-3 rounded-xl bg-[#252d3d]/50 hover:bg-[#252d3d] transition-all cursor-pointer">
                 {/* Rank */}
                 <div className="w-8 flex items-center justify-center">
@@ -62,12 +89,7 @@ export function RankingSection({ title, items }: RankingSectionProps) {
 
                 {/* Book cover */}
                 <div className="w-12 h-[68px] rounded-lg overflow-hidden flex-shrink-0 bg-slate-700">
-                  <img
-                    src={item.imageUrl || "https://via.placeholder.com/400x600/222/fff?text=Cover"}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <ImageWithError item={item} />
                 </div>
 
                 {/* Info */}
@@ -92,7 +114,8 @@ export function RankingSection({ title, items }: RankingSectionProps) {
                 </div>
               </div>
             </Link>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
