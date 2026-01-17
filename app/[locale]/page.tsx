@@ -164,7 +164,7 @@ export default async function HomePage({
       <div className="container mx-auto px-4">
         <FeedAd slotId="1234567890" />
       </div>
-
+        
       {/* 실시간 랭킹 리스트 (Suspense와 스트리밍 적용) */}
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <RankingList />
